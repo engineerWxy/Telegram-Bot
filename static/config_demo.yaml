@@ -1,0 +1,12 @@
+server:
+  osp:
+    host: https://api.dev.trex.xyz/v2/s2s
+    headers:
+      app_id: "1"
+      api_id: MIGTAgEAMB
+  webhook_host: https://c887-8-210-150-3.ngrok-free.app
+bot:
+  - name: personal
+    token: 7275762383:AAH4bB38XzsuVB52ToAtA12sWTBBNCMR_qY
+  - name: group
+    token: 7486373670:AAG8aoD1EFMoD7oDptiuoaZWA2Lm5T-uCCY
