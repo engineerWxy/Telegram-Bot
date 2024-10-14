@@ -1,7 +1,11 @@
-.DS_Store
+__pycache__
+app.egg-info
 *.pyc
-*.egg-info
-*.swp
-tags
-.idea
-*.log
+.mypy_cache
+.coverage
+htmlcov
+.cache
+venv
+logs
+app/__pycache__
+.idea/

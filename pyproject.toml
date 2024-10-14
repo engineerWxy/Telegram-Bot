@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi-bot-template"
+version = "0.1.0"
+description = ""
+authors = ["qinpei <eric.qin@kikitrade.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.0"
+python-telegram-bot = "^21.5"
+pydantic-settings = "^2.5.2"
+redis = "^5.0.8"
+uvicorn = "^0.30.6"
+pydantic = "^2.9.2"
+pyyaml = "^6.0.2"
+sqlalchemy = "^2.0.35"
+alibabacloud-mse20190531 = "^6.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

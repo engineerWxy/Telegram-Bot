@@ -1,0 +1,22 @@
+app:
+  name: 'TelePulse'
+  desc: ''
+  domain: '279a-8-210-150-3.ngrok-free.app'
+  env: 'local'
+redis:
+  host: ''
+  port: '6379'
+  password: ''
+  db_index: 60
+  max_total: 32
+osp:
+  host: https://api.dev.trex.xyz/v2/s2s
+  headers:
+    app_id: "1"
+    api_key: MIGTAgEAMB
+bot:
+  - name: personal
+    token: 7507939070:AAEmQLZouXPRrc-dgcYeIddxc_xXe8h3R5Q
+#  - name: group
+#    token: 7200300929:AAE5_itEB8dowyp6fZzbuPobu0VjMTAM9t4
+
