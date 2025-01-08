@@ -16,6 +16,8 @@ pydantic = "^2.9.2"
 pyyaml = "^6.0.2"
 sqlalchemy = "^2.0.35"
 alibabacloud-mse20190531 = "^6.13.1"
+grpcio_tools = "^1.46.0"
+grpcio-reflection = "^1.46.0"
 
 
 [build-system]

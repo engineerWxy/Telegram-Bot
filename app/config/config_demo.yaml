@@ -1,0 +1,45 @@
+app:
+  name: TelePulse
+  desc: ''
+  domain: 968a-8-210-150-3.ngrok-free.app
+  env: local
+  token: ''
+redis:
+  host: ''
+  port: 6379
+  password: ''
+  db_index: 60
+  max_total: 32
+oss:
+  bucket: alien-dev
+  endpoint: oss-ap-southeast-1
+  access_key_id: ''
+  access_key_secret: ''
+bot:
+  osp:
+    common:
+      - name: personal
+        token: bot token
+    space:
+      - name: group
+        token: bot token
+  ufool:
+    common:
+      - name: ufool
+        token: bot token
+      - name: ufool_pay
+        token: bot token
+osp:
+  domain: api.dev.trex.xyz/v2/s2s
+  headers:
+    app_id: '1'
+    api_key: MIGTAgEAMB
+customer:
+  domain: ''
+quests:
+  domain: ''
+  sign: ''
+ufool:
+  mini_app_url: https://t.me/FoolishAlien_beta_bot/ufool?startapp=HUU9BH
+  ann_url: ''
+

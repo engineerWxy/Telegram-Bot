@@ -5,5 +5,6 @@ class Osp(BaseModel):
     """
     Osp server 配置
     """
-    host: str = Field(..., description="osp host")
+    domain: str = Field(..., description="osp服务域名")
     headers: dict = Field(..., description="osp https headers")
+

@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message CommonResponse {
+  string code = 1;
+  string message = 2;
+  string errorMsg = 3;
+  string data = 4;
+}

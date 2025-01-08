@@ -1,0 +1,27 @@
+syntax = "proto3";
+import 'base.proto';
+
+enum BanType{
+  membership = 0;
+  tribe = 1;
+}
+
+message BanChatMemberRequest {
+  string sassId = 1;
+  BanType banType = 2;
+  int64 chatId = 3;
+  string chatTitle = 4;
+  int64 userId = 5;
+}
+
+message LeaveChatRequest {
+  string sassId = 1;
+  int64 chatId = 2;
+  string chatTitle = 3;
+}
+
+
+service Chat{
+  rpc leaveChat(LeaveChatRequest) returns (CommonResponse);
+  rpc banChatMember(BanChatMemberRequest) returns (CommonResponse);
+}

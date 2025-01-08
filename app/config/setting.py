@@ -11,9 +11,12 @@ from pydantic_settings import (
     BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict, YamlConfigSettingsSource,
 )
 
-from app.items.app_item import App, Redis
-from app.items.bot_item import Bot
+from app.items.app_item import App, Redis, OSS
+from app.items.bot_item import Bots
 from app.items.osp_item import Osp
+from app.items.customer_item import Customer
+from app.items.quests_item import Quests
+from app.items.ufool_item import UFool
 from app.utils.object_util import camel_to_snake
 
 
@@ -21,16 +24,49 @@ class Settings(BaseSettings):
     """
     系统配置参数入口
     """
+    
+    # bot webhook key
+    OSP_COMMON_PERSONAL_WEBHOOK: str = "/bot/receiveOspCommonPersonalBotMsg"
+    OSP_SPACE_GROUP_WEBHOOK: str = "/bot/receiveOspSpaceGroupBotMsg"
+    UFOOL_COMMON_UFOOL_WEBHOOK: str = "/bot/receiveUFoolCommonUFoolBotMsg"
+    
+    # osp api
+    BIND: str = "bind"
+    JOIN_CHAT_GROUP: str = "bind/join/chat/group"
+    CHAT_GROUP_JOIN_VERIFY: str = "chatgroup/join_verify"
+    UNBIND: str = "chatgroup/unbind"
+    
+    # customer api
+    OPEN_AUTH: str = "/customer/open/auth/{}"
+    
+    # quests api
+    JOIN_TG_URL: str = "/v2/tasks/doquests"
+    JOIN_TG_TASK_ID: str = "408011"
+    
+    # ufool /start 配置
+    UFOOL_X: str = "https://x.com/Ufoolxyz"
+    UFOOL_WELCOME_IMAGE: str = "ufool/images/tgWelcomeLogo.png"
+    
     app: App  # 项目配置
-    bot: List[Bot]  # 机器人配置
+    bot: Bots  # 机器人配置
     redis: Redis
+    oss: OSS
     osp: Osp
+    ufool: UFool
+    customer: Customer
+    quests: Quests
     
-    personal: str = "/bot/receivePersonalBotMsg"
-    group: str = "/bot/receiveGroupBotMsg"
-    
-    bind: str = "platforms/bind"
-    join_chat_group: str = "platforms/join/chat/group"
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def ufool_token(self) -> str:
+        """
+        get ufool bot token
+        :return:
+        """
+        for bot in self.bot.ufool.common:
+            if bot.name == 'ufool':
+                return bot.token
+        raise AttributeError('ufool token not exists')
     
     @computed_field  # type: ignore[prop-decorator]
     @property
@@ -92,7 +128,7 @@ class Settings(BaseSettings):
             
             res = client.get_nacos_config_with_options(get_nacos_config_request, runtime)
             
-            with open("./config.yaml", "w") as r:
+            with open("app/config/config.yaml", "w") as r:
                 r.write(res.body.configuration.content)
         except Exception as e:
             raise e

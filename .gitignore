@@ -9,3 +9,5 @@ venv
 logs
 app/__pycache__
 .idea/
+app/config/config.yaml
+*.rdb

@@ -1,0 +1,4 @@
+include: 
+  - project: Keccak256-evg/ops/gitlab-cis
+    ref: master
+    file: gwave-dev/telepulse.yaml

@@ -1,0 +1,19 @@
+syntax = "proto3";
+import 'base.proto';
+
+enum GroupType{
+  private = 0;
+  public = 1;
+}
+
+
+message VerifyGroupLinkRequest {
+    string sassId = 1;
+    GroupType groupType = 2;
+    string groupLink = 3;
+}
+
+
+service VerifyLink{
+  rpc verifyGroupLink(VerifyGroupLinkRequest) returns (CommonResponse);
+}
